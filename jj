@@ -1,0 +1,17 @@
+from typing import List, Tuple
+
+# Definimos una transacción como una tupla con un ID y un monto
+Transaccion = Tuple[int, float]
+
+# Función para filtrar transacciones mayores a un umbral
+def filtrar_transacciones(umbral: float, transacciones: List[Transaccion]) -> List[Transaccion]:
+    return list(filter(lambda t: t[1] > umbral, transacciones))
+
+# Lista de transacciones de ejemplo
+transacciones: List[Transaccion] = [(1, 500.0), (2, 1200.0), (3, 300.0), (4, 2500.0)]
+
+# Uso de la función para obtener transacciones mayores a 1000
+transacciones_filtradas = filtrar_transacciones(1000, transacciones)
+
+if __name__ == "__main__":
+    print(transacciones_filtradas)
